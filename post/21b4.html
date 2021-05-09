@@ -388,14 +388,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-08
+                    2021-05-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    917
+                    836
                 </div>
                 
 
@@ -594,158 +594,158 @@
 <p><img src="/post/21b4/image-20210507235042047.png" alt="image-20210507235042047"></p>
 </li>
 </ul>
-<h2 id="2-内存错误调试"><a href="#2-内存错误调试" class="headerlink" title="2. 内存错误调试"></a>2. 内存错误调试</h2><h3 id="2-1-Valgrind"><a href="#2-1-Valgrind" class="headerlink" title="2.1  Valgrind"></a>2.1  Valgrind</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdlib.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;string.h&gt;
+<h2 id="2-内存错误调试"><a href="#2-内存错误调试" class="headerlink" title="2. 内存错误调试"></a>2. 内存错误调试</h2><h3 id="2-1-Valgrind"><a href="#2-1-Valgrind" class="headerlink" title="2.1  Valgrind"></a>2.1  Valgrind</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
 
-using namespace std;
+using namespace std<span class="token punctuation">;</span>
 
-&#x2F;* 非法读写 *&#x2F;
-int memory_error1()
-&#123;
-    printf(&quot;--- %s test ---\n&quot;, __FUNCTION__);
-    char *p &#x3D; (char *)malloc(100);
+<span class="token comment">/* 非法读写 */</span>
+<span class="token keyword">int</span> <span class="token function">memory_error1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"--- %s test ---\n"</span><span class="token punctuation">,</span> __FUNCTION__<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-#if 0
-    &#x2F;* 非法读 *&#x2F;
-    char num &#x3D; *(p + 100);
-#endif
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token number">0</span></span></span>
+    <span class="token comment">/* 非法读 */</span>
+    <span class="token keyword">char</span> num <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
 
-#if 1
-    &#x2F;* 非法写 *&#x2F;
-    *(p + 120) &#x3D; 30; 
-#endif
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token number">1</span></span></span>
+    <span class="token comment">/* 非法写 */</span>
+    <span class="token operator">*</span><span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span> 
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
 
-    if (p !&#x3D; NULL) &#123;
-        free(p);
-        p &#x3D; NULL;
-    &#125;
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">free</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        p <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
-    return 0;
-&#125;
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-&#x2F;* 使用未初始化的值 *&#x2F;
-int memory_error2()
-&#123;
-    printf(&quot;--- %s test ---\n&quot;, __FUNCTION__);
+<span class="token comment">/* 使用未初始化的值 */</span>
+<span class="token keyword">int</span> <span class="token function">memory_error2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"--- %s test ---\n"</span><span class="token punctuation">,</span> __FUNCTION__<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    int value;
+    <span class="token keyword">int</span> value<span class="token punctuation">;</span>
     
-    printf(&quot;value &#x3D; %d\n&quot;, value);
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"value = %d\n"</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    return 0;
-&#125;
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-&#x2F;* 系统调用时使用未初始化的值或者地址 *&#x2F;
-int memory_error3()
-&#123;
-    printf(&quot;--- %s test ---\n&quot;, __FUNCTION__);
+<span class="token comment">/* 系统调用时使用未初始化的值或者地址 */</span>
+<span class="token keyword">int</span> <span class="token function">memory_error3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"--- %s test ---\n"</span><span class="token punctuation">,</span> __FUNCTION__<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    char buf[100];
+    <span class="token keyword">char</span> buf<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    write(1, buf, sizeof(buf));
+    <span class="token function">write</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> buf<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     
-    return 0;
-&#125;
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-&#x2F;* 非法释放 *&#x2F;
-int memory_error4()
-&#123;
-    printf(&quot;--- %s test ---\n&quot;, __FUNCTION__);
-    char *p &#x3D; (char *)malloc(100);
+<span class="token comment">/* 非法释放 */</span>
+<span class="token keyword">int</span> <span class="token function">memory_error4</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"--- %s test ---\n"</span><span class="token punctuation">,</span> __FUNCTION__<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     
-    p +&#x3D; 2;
+    p <span class="token operator">+=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 
-    if (p !&#x3D; NULL) &#123;
-        free(p);
-        p &#x3D; NULL;
-    &#125;
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">free</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        p <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
-    return 0;
-&#125;
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-&#x2F;* 不匹配的释放 *&#x2F;
-int memory_error5()
-&#123;
-    printf(&quot;--- %s test ---\n&quot;, __FUNCTION__);
-    int *p &#x3D; new int[10];
+<span class="token comment">/* 不匹配的释放 */</span>
+<span class="token keyword">int</span> <span class="token function">memory_error5</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"--- %s test ---\n"</span><span class="token punctuation">,</span> __FUNCTION__<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> new <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     
-#if 1
-    &#x2F;* 不匹配的释放 *&#x2F;
-    delete p;
-#endif
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token number">1</span></span></span>
+    <span class="token comment">/* 不匹配的释放 */</span>
+    delete p<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
 
-#if 0
-    delete[] p;
-#endif
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token number">0</span></span></span>
+    delete<span class="token punctuation">[</span><span class="token punctuation">]</span> p<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
     
-    return 0;
-&#125;
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-&#x2F;* 参数不合法 *&#x2F;
-int memory_error6()
-&#123;
-    printf(&quot;--- %s test ---\n&quot;, __FUNCTION__);
+<span class="token comment">/* 参数不合法 */</span>
+<span class="token keyword">int</span> <span class="token function">memory_error6</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"--- %s test ---\n"</span><span class="token punctuation">,</span> __FUNCTION__<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    int len &#x3D; -50;
-    char *p &#x3D; (char *)malloc(len);
+    <span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    if (p !&#x3D; NULL)
-    &#123;   
-        free(p);
-        p &#x3D; NULL;
-    &#125;
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>   
+        <span class="token function">free</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        p <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
-    return 0;
-&#125;
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-&#x2F;* 源地址和目标地址重叠 *&#x2F;
-int memory_error7()
-&#123;
-    printf(&quot;--- %s test ---\n&quot;, __FUNCTION__);
+<span class="token comment">/* 源地址和目标地址重叠 */</span>
+<span class="token keyword">int</span> <span class="token function">memory_error7</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"--- %s test ---\n"</span><span class="token punctuation">,</span> __FUNCTION__<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    char src[] &#x3D; &quot;abcdefghijk&quot;;
+    <span class="token keyword">char</span> src<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"abcdefghijk"</span><span class="token punctuation">;</span>
 
-    printf(&quot;before src: %s\n&quot;, src);
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"before src: %s\n"</span><span class="token punctuation">,</span> src<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    memcpy(src + 5, src, 7);
+    <span class="token function">memcpy</span><span class="token punctuation">(</span>src <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">,</span> src<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    printf(&quot;after src: %s\n&quot;, src);
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"after src: %s\n"</span><span class="token punctuation">,</span> src<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    return 0;
-&#125;
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-&#x2F;* 内存泄露 *&#x2F;
-int memory_error8()
-&#123;
-    printf(&quot;--- %s test ---\n&quot;, __FUNCTION__);
+<span class="token comment">/* 内存泄露 */</span>
+<span class="token keyword">int</span> <span class="token function">memory_error8</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"--- %s test ---\n"</span><span class="token punctuation">,</span> __FUNCTION__<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    char *p &#x3D; (char *)malloc(1024);
+    <span class="token keyword">char</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    return 0;
-&#125;
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
 
-int main()
-&#123;
-    &#x2F;&#x2F;memory_error1();
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token comment">//memory_error1();</span>
 
-    &#x2F;&#x2F;memory_error2();
+    <span class="token comment">//memory_error2();</span>
 
-    &#x2F;&#x2F;memory_error3();
+    <span class="token comment">//memory_error3();</span>
 
-    &#x2F;&#x2F;memory_error4();
+    <span class="token comment">//memory_error4();</span>
 
-    &#x2F;&#x2F;memory_error5();
+    <span class="token comment">//memory_error5();</span>
     
-    &#x2F;&#x2F;memory_error6();
+    <span class="token comment">//memory_error6();</span>
 
-    &#x2F;&#x2F;memory_error7();
+    <span class="token comment">//memory_error7();</span>
 
-    memory_error8();
-    return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token function">memory_error8</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li><p>编译</p>
