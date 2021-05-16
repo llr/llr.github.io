@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>戴尔服务器添加硬盘</title>
+      <link href="post/cc06.html"/>
+      <url>post/cc06.html</url>
+      
+        <content type="html"><![CDATA[<p>​        给<code>戴尔服务器R330</code>添加<code>12TB</code>硬盘。该服务器有4个盘位。</p><h2 id="1-添加硬盘流程"><a href="#1-添加硬盘流程" class="headerlink" title="1. 添加硬盘流程"></a>1. 添加硬盘流程</h2><h3 id="1-1-服务器关机并打开服务器后盖"><a href="#1-1-服务器关机并打开服务器后盖" class="headerlink" title="1.1 服务器关机并打开服务器后盖"></a>1.1 服务器关机并打开服务器后盖</h3><p><img src="/post/cc06/image-20210514142830314.png" alt="image-20210514142830314"></p><p><img src="/post/cc06/image-20210514142931891.png" alt="image-20210514142931891"></p><p>硬盘装好后，接上线。如下图：</p><p><img src="/post/cc06/image-20210514143235080.png" alt="image-20210514143235080"></p><h3 id="1-2-开机配置阵列"><a href="#1-2-开机配置阵列" class="headerlink" title="1.2 开机配置阵列"></a>1.2 开机配置阵列</h3><p>在开机过程中，看到有 <code>ctrl + r</code>  的提示，然后按<code>ctrl + r</code>，进入阵列卡配置界面，如下：</p><p><img src="/post/cc06/image-20210514143537833.png" alt="image-20210514143537833"></p><p>现在这块硬盘的状态是<code>NON-RAid</code>， 在系统里面可以是直接识别到的，如果做<code>RAID 0</code> 也是可以的。</p><p><img src="/post/cc06/image-20210514143615279.png" alt="image-20210514143615279"></p><p>下面将进行做<code>RAID0</code></p><p><img src="/post/cc06/image-20210514144050384.png" alt="image-20210514144050384"></p><p><img src="/post/cc06/image-20210514144131646.png" alt="image-20210514144131646"></p><p><img src="/post/cc06/image-20210514144515786.png" alt="image-20210514144515786"></p><p><img src="/post/cc06/image-20210514144610133.png" alt="image-20210514144610133"></p><p><img src="/post/cc06/image-20210514144714565.png" alt="image-20210514144714565"></p><p><img src="/post/cc06/image-20210514144822926.png" alt="image-20210514144822926"></p><p><img src="/post/cc06/image-20210514144930586.png" alt="image-20210514144930586"></p><p><img src="/post/cc06/image-20210514144955692.png" alt="image-20210514144955692"></p><p><img src="/post/cc06/image-20210514145026564.png" alt="image-20210514145026564"></p><p><img src="/post/cc06/image-20210514145059367.png" alt="image-20210514145059367"></p><p><img src="/post/cc06/image-20210514145117328.png" alt="image-20210514145117328"></p><p>到此已完成给添加的硬盘做<code>RAID0</code>，如下图</p><p><img src="/post/cc06/image-20210514145220417.png" alt="image-20210514145220417"></p><h3 id="1-3-重启机器，进入系统后在新添加的硬盘新建卷"><a href="#1-3-重启机器，进入系统后在新添加的硬盘新建卷" class="headerlink" title="1.3 重启机器，进入系统后在新添加的硬盘新建卷"></a>1.3 重启机器，进入系统后在新添加的硬盘<code>新建卷</code></h3><p><img src="/post/cc06/image-20210514145344393.png" alt="image-20210514145344393"></p><p><img src="/post/cc06/image-20210514145427221.png" alt="image-20210514145427221"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 服务器 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>嵌入式gdb调试</title>
       <link href="post/c850.html"/>
       <url>post/c850.html</url>
