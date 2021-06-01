@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://llr.github.io/post/f067.html</loc>
+    
+    <lastmod>2021-06-01</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://llr.github.io/post/cc06.html</loc>
     
     <lastmod>2021-05-16</lastmod>
@@ -151,211 +158,218 @@
 
   <url>
     <loc>https://llr.github.io/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>https://llr.github.io/tags/IMX8/</loc>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://llr.github.io/tags/bayer/</loc>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://llr.github.io/tags/zynq/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/usb%E6%91%84%E5%83%8F%E5%A4%B4/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/%E9%A9%B1%E5%8A%A8/</loc>
-    <lastmod>2021-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://llr.github.io/tags/gdb/</loc>
-    <lastmod>2021-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://llr.github.io/tags/IMX8/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/udev/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/emmc/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://llr.github.io/tags/coredump/</loc>
-    <lastmod>2021-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://llr.github.io/tags/%E5%86%85%E5%AD%98%E9%94%99%E8%AF%AF/</loc>
-    <lastmod>2021-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://llr.github.io/tags/cpu%E9%94%99%E8%AF%AF/</loc>
-    <lastmod>2021-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://llr.github.io/tags/vscode/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <loc>https://llr.github.io/tags/gdb/</loc>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/uboot/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://llr.github.io/tags/coredump/</loc>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://llr.github.io/tags/%E5%86%85%E5%AD%98%E9%94%99%E8%AF%AF/</loc>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://llr.github.io/tags/cpu%E9%94%99%E8%AF%AF/</loc>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/%E5%A4%96%E8%AE%BE%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/usb/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://llr.github.io/tags/%E5%86%85%E6%A0%B8/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <loc>https://llr.github.io/tags/vscode/</loc>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/PRU/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/%E7%BD%91%E5%8F%A3/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/am570x/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://llr.github.io/tags/%E5%86%85%E6%A0%B8/</loc>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/%E8%B0%83%E8%AF%95/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/imx8/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/systemd/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/u%E7%9B%98/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/ntfs/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2021-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://llr.github.io/tags/linux/</loc>
-    <lastmod>2021-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://llr.github.io/tags/udev%E8%A7%84%E5%88%99/</loc>
-    <lastmod>2021-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://llr.github.io/tags/udev%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://llr.github.io/tags/linux/</loc>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://llr.github.io/tags/udev%E8%A7%84%E5%88%99/</loc>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://llr.github.io/tags/udev%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -364,42 +378,49 @@
   
   <url>
     <loc>https://llr.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://llr.github.io/categories/%E5%9B%BE%E5%83%8F/</loc>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/categories/linux/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/categories/hexo/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/categories/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/categories/linux/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://llr.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2021-05-16</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

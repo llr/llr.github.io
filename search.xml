@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>bayer图像格式</title>
+      <link href="post/f067.html"/>
+      <url>post/f067.html</url>
+      
+        <content type="html"><![CDATA[<ul><li><p><strong>背景：</strong></p><p>可感受光强度的传感器可以制造出能拍出黑白照片（是灰度图）的相机。但如果需要彩色图像，这种技术就无能为力了，因为当时的传感器只能感知光的强度，而无法感知颜色，也就是频率或波段。如果想要获得不同波段的光，最直接的做法是加入不同颜色的滤镜，从而滤出RGB三个通道的颜色。但是用这种方法如果对每个pixel都获得三个通道的光强的话，则需要对每个pixel都应用三个滤镜，成本过高。柯达公司的工程师Bryce Bayer ，也就是拜耳阵列的发明人，想到了一种解决方案，就是Bayer pattern。</p></li></ul><h2 id="1-关于bayer图像格式"><a href="#1-关于bayer图像格式" class="headerlink" title="1. 关于bayer图像格式"></a>1. 关于bayer图像格式</h2><ul><li>bayer 是相机内部的原始图片, 一般后缀名为 <code>raw</code>。一般需要转换为其他格式才方便查看与存储。但不同厂商的摄像头出来的 bayer 也有一些差别，主要表现在 RGB 颜色值的排列顺序上的不同。需要注意的是，我们常说的 RGB图, 即为三色图, 一个像素点就由RGB三种颜色构成的混合色, 而bayer图一个像素就只有一个颜色, 或R或G或B. 因为bayer一个像素点只有一种颜色, 需要借助这个像素点周围的颜色对它进行插值(填充)另外的两种颜色, 它本身的颜色就不用插了. 绿色占像素总数的一半，而红色和蓝色占总数的四分之一，因此也称做<code>BGGR</code>, <code>RGBG</code>, <code>GRBG</code>, <code>RGGB</code>。</li></ul><ul><li><p>数据排列格式有四种如下表：</p><p><img src="/post/f067/image-20210601230949424.png" alt="image-20210601230949424"></p></li></ul><h2 id="2-RAW数据格式"><a href="#2-RAW数据格式" class="headerlink" title="2. RAW数据格式"></a>2. RAW数据格式</h2><ul><li><p>raw格式是<code>sensor</code>的输出格式，是未经处理过的数据.</p></li><li><p>raw数据在输出的时候是有一定的顺序的，一般为以下四种:</p><ul><li>GR/BG</li><li>RG/GB</li><li>BG/GR</li><li>GB/RG</li></ul></li><li><p>raw数据几种常用的格式</p><ul><li><p><strong>raw8</strong></p><p>raw8即是用8bits表示 <code>G/R/B/G</code> 中的一个分量，而不是使用8bits表示 <code>RG/GB</code> 四个分量。在sensor中，为了降低功耗，使用一个晶体来表示一种颜色，然后利用差值计算出相邻像素的值。</p></li><li><p><strong>raw10</strong></p><p>raw10就是使用 10bit 表示上述的一个 <code>G/R/B/G</code>，但是数据中是16bit的，高6位没用。</p></li><li><p><strong>raw12</strong></p><p>raw12就是使用 12bit 表示上述的一个 <code>G/R/B/G</code>，但是数据中是16bit的，高4位没用。</p></li></ul></li></ul><h2 id="3-bayer2rgb工具"><a href="#3-bayer2rgb工具" class="headerlink" title="3. bayer2rgb工具"></a>3. bayer2rgb工具</h2><blockquote><p>bayer2rgb工具用于将摄像头采集的 RAW 图片转换为 tiff 格式后，可以在window或者ubuntu下使用图片查看器来打开。</p></blockquote><h3 id="3-1-编译"><a href="#3-1-编译" class="headerlink" title="3.1 编译"></a>3.1 编译</h3><ul><li><p>克隆bayer2rgb项目（项目地址：<a href="https://github.com/jdthomas/bayer2rgb%EF%BC%89">https://github.com/jdthomas/bayer2rgb）</a></p><p>git clone <a href="https://github.com/jdthomas/bayer2rgb.git">https://github.com/jdthomas/bayer2rgb.git</a></p></li><li><p>编译</p><p>make</p><p><img src="/post/f067/image-20210601161503847.png" alt="image-20210601161503847"></p></li></ul><h3 id="3-2-bayer2rgb使用"><a href="#3-2-bayer2rgb使用" class="headerlink" title="3.2 bayer2rgb使用"></a>3.2 bayer2rgb使用</h3><ul><li><p>将生成的raw图像转换为RGB图像</p><p>./bayer2rgb -i ./test.raw -o ./test.tiff -w 1920 -v 1080 -b 8 -f BGGR -t</p><p><img src="/post/f067/image-20210601161958624.png" alt="image-20210601161958624"></p><p>参数说明：</p><p>-i： RAW图像文件</p><p>-o：输出rgb图像文件名</p><p>-w：图像分辨率(宽)</p><p>-v：图像分辨率(高)</p><p>-b：像素位数</p><p>-f：RAW图像格式</p><p>-t：给生成的tiff文件添加头信息(<code>如果不加上这个参数，则生成的图像只有数据信息，没有文件头信息，图片查看软件无法获知其对应格式，直接打开会提示无效图片</code>)</p></li></ul><p>参考：</p><p><a href="https://www.cnblogs.com/linhaostudy/p/11225815.html">https://www.cnblogs.com/linhaostudy/p/11225815.html</a></p><p><a href="https://blog.csdn.net/qq_29575685/article/details/103954096">https://blog.csdn.net/qq_29575685/article/details/103954096</a></p><p><a href="https://blog.csdn.net/hou5233/article/details/108595743">https://blog.csdn.net/hou5233/article/details/108595743</a></p><p><a href="http://www.ruanyifeng.com/blog/2012/12/bayer_filter.html">http://www.ruanyifeng.com/blog/2012/12/bayer_filter.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图像 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> bayer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>戴尔服务器添加硬盘</title>
       <link href="post/cc06.html"/>
       <url>post/cc06.html</url>
