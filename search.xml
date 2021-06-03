@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>pkg-config命令</title>
+      <link href="post/4583.html"/>
+      <url>post/4583.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-pkg-config命令的作用"><a href="#1-pkg-config命令的作用" class="headerlink" title="1. pkg-config命令的作用"></a>1. pkg-config命令的作用</h2><ul><li>用于返回已安装的库的元信息，能够列出系统已经安装的库的相关信息。如 <code>库的路径</code> 和 <code>头文件路径</code>。特别是在预处理和编译的时候，能够告诉 gcc 等编译器，程序依赖的库和头文件的位置。</li></ul><h2 id="2-pkg-config命令原理"><a href="#2-pkg-config命令原理" class="headerlink" title="2. pkg-config命令原理"></a>2. pkg-config命令原理</h2><ul><li><p>pkg-config命令是通过查询<code>.pc</code>后缀的文件来检索包的信息，在大多数系统中，会在以下位置查找<code>.pc</code>文件</p><ul><li>/usr/lib/pkgconfig</li><li>/usr/share/pkgconfig</li><li>/usr/local/lib/pkgconfig</li><li>/usr/local/share/pkgconfig</li></ul></li><li><p>可以通过设置<code>PKG_CONFIG_PATH</code>环境变量，<code>pkg-config</code>命令会读取这个环境变量从而在指定的位置下查找<code>.pc</code>文件</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export PKG_CONFIG_PATH&#x3D;&#x2F;home&#x2F;llr&#x2F;work&#x2F;demo&#x2F;gst-demo:$PKG_CONFIG_PATH<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><blockquote><p>ubuntu16.04安装包后，<code>.pc</code>文件在/usr/lib/x86_64-linux-gnu/pkgconfig目录下</p></blockquote></li></ul><h2 id="3-pkg-config命令使用"><a href="#3-pkg-config命令使用" class="headerlink" title="3. pkg-config命令使用"></a>3. pkg-config命令使用</h2><h3 id="3-1-列出所有已经安装的库"><a href="#3-1-列出所有已经安装的库" class="headerlink" title="3.1 列出所有已经安装的库"></a>3.1 列出所有已经安装的库</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pkg-config --list-all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/post/4583/image-20210603233210963.png" alt="image-20210603233210963"></p><h3 id="3-2-列出指定库的预处理和编译flag"><a href="#3-2-列出指定库的预处理和编译flag" class="headerlink" title="3.2 列出指定库的预处理和编译flag"></a>3.2 列出指定库的预处理和编译flag</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pkg-config --cflags gstreamer-1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/post/4583/image-20210603233743611.png" alt="image-20210603233743611"></p><h3 id="3-3-列出指定库的链接flag"><a href="#3-3-列出指定库的链接flag" class="headerlink" title="3.3 列出指定库的链接flag"></a>3.3 列出指定库的链接flag</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pkg-config --libs gstreamer-1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/post/4583/image-20210603233921087.png" alt="image-20210603233921087"></p><h3 id="3-4-输出包的版本"><a href="#3-4-输出包的版本" class="headerlink" title="3.4 输出包的版本"></a>3.4 输出包的版本</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pkg-config --modversion gstreamer-base-1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/post/4583/image-20210603235709585.png" alt="image-20210603235709585"></p><h3 id="3-5-输出需要依赖的软件包"><a href="#3-5-输出需要依赖的软件包" class="headerlink" title="3.5 输出需要依赖的软件包"></a>3.5 输出需要依赖的软件包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pkg-config --print-requires gstreamer-1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/post/4583/image-20210604005904417.png" alt="image-20210604005904417"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux命令 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>c++提高编程</title>
       <link href="post/366d.html"/>
       <url>post/366d.html</url>
