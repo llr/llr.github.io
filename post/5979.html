@@ -6,7 +6,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta name="baidu-site-verification" content="code-rSWRQQG19Z" />
     <meta name="google-site-verification" content="S8oj9Joy_zJyj18K-xrYocbLlltTzuSIvytEz2uaIZc" />
     <meta charset="utf-8">
-    <meta name="keywords" content="pkg-config命令, 乐博客">
+    <meta name="keywords" content="gstreamer命令, 乐博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>pkg-config命令 | 乐博客</title>
+    <title>gstreamer命令 | 乐博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -240,12 +240,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pkg-config命令</h1>
+                    <h1 class="description center-align post-title">gstreamer命令</h1>
                 </div>
             </div>
         </div>
@@ -361,8 +361,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux%E5%91%BD%E4%BB%A4/">
-                                <span class="chip bg-color">linux命令</span>
+                            <a href="/tags/gstreamer%E5%91%BD%E4%BB%A4/">
+                                <span class="chip bg-color">gstreamer命令</span>
                             </a>
                         
                     </div>
@@ -373,8 +373,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/linux/" class="post-category">
-                                linux
+                            <a href="/categories/gstreamer/" class="post-category">
+                                gstreamer
                             </a>
                         
                     </div>
@@ -386,28 +386,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-03
+                    2021-06-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-04
+                    2021-06-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    309
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -430,41 +430,149 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-pkg-config命令的作用"><a href="#1-pkg-config命令的作用" class="headerlink" title="1. pkg-config命令的作用"></a>1. pkg-config命令的作用</h2><ul>
-<li>用于返回已安装的库的元信息，能够列出系统已经安装的库的相关信息。如 <code>库的路径</code> 和 <code>头文件路径</code>。特别是在预处理和编译的时候，能够告诉 gcc 等编译器，程序依赖的库和头文件的位置。</li>
-</ul>
-<h2 id="2-pkg-config命令原理"><a href="#2-pkg-config命令原理" class="headerlink" title="2. pkg-config命令原理"></a>2. pkg-config命令原理</h2><ul>
-<li><p>pkg-config命令是通过查询<code>.pc</code>后缀的文件来检索包的信息，在大多数系统中，会在以下位置查找<code>.pc</code>文件</p>
+                <h2 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1. 常用命令"></a>1. 常用命令</h2><h3 id="1-1-播放视频测试数据"><a href="#1-1-播放视频测试数据" class="headerlink" title="1.1 播放视频测试数据"></a>1.1 播放视频测试数据</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 videotestsrc ! &quot;video&#x2F;x-raw,width&#x3D;1280,height&#x3D;720&quot; ! autovideosink
+
+gst-launch-1.0 videotestsrc ! &quot;video&#x2F;x-raw,width&#x3D;1280,height&#x3D;720&quot; ! timeoverlay ! autovideosink
+
+ gst-launch-1.0 -v videotestsrc ! vertigotv ! videoconvert ! autovideosink<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li>/usr/lib/pkgconfig</li>
-<li>/usr/share/pkgconfig</li>
-<li>/usr/local/lib/pkgconfig</li>
-<li>/usr/local/share/pkgconfig</li>
+<li>videotestsrc是一个source element，用于产生视频数据，通常用于调试。</li>
+<li>timeoverlay是一个filter-like element，可以在视频数据中叠加一个时间字符串。</li>
+<li>autovideosink用于自动选择视频输出设备，创建视频显示窗口，并显示其收到的数据。</li>
 </ul>
-</li>
-<li><p>可以通过设置<code>PKG_CONFIG_PATH</code>环境变量，<code>pkg-config</code>命令会读取这个环境变量从而在指定的位置下查找<code>.pc</code>文件</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export PKG_CONFIG_PATH&#x3D;&#x2F;home&#x2F;llr&#x2F;work&#x2F;demo&#x2F;gst-demo:$PKG_CONFIG_PATH<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="1-2-播放本地视频文件"><a href="#1-2-播放本地视频文件" class="headerlink" title="1.2 播放本地视频文件"></a>1.2 播放本地视频文件</h3><p>测试文件<a target="_blank" rel="noopener" href="http://www.freedesktop.org/software/gstreamer-sdk/data/media/sintel_trailer-480p.ogv"> sintel_trailer-480p.ogv</a></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 filesrc location&#x3D;sintel_trailer-480p.ogv ! oggdemux name&#x3D;demux ! queue ! vorbisdec ! autoaudiosink demux. ! queue ! theoradec ! videoconvert ! autovideosink<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>通过上面的命令播放文件时，会创建如下pipeline：</p>
+<p><img src="/post/5979/image-20210604235706460.png" alt="image-20210604235706460"></p>
+<p>可以看到这个pipeline由8个element构成，每个element都实现各自的功能：</p>
+<ul>
+<li>filesrc读取文件</li>
+<li>oggdemux解析文件，分别提取audio,video数据</li>
+<li>queue缓存数据</li>
+<li>vorbisdec解码audio</li>
+<li>autoaudiosink自动选择音频设备并输出</li>
+<li>theoradec解码video</li>
+<li>videoconvert转换video数据格式</li>
+<li>autovideosink自动选择显示设备并输出</li>
+</ul>
 <blockquote>
-<p>ubuntu16.04安装包后，<code>.pc</code>文件在/usr/lib/x86_64-linux-gnu/pkgconfig目录下</p>
+<p>不同的element拥有不同数量及类型的pad，只有src pad的element被称为source element，只有sink pad的被称为sink element。</p>
+<p>element可以同时拥有多个相同的pad，例如oggdemux在解析文件后，会将audio，video通过不同的pad输出。</p>
 </blockquote>
-</li>
+<h3 id="1-3-ogv转码为mp4"><a href="#1-3-ogv转码为mp4" class="headerlink" title="1.3 ogv转码为mp4"></a>1.3 ogv转码为mp4</h3><p>测试视频：<a target="_blank" rel="noopener" href="http://www.freedesktop.org/software/gstreamer-sdk/data/media/sintel_trailer-480p.ogv"> sintel_trailer-480p.ogv</a></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 filesrc location&#x3D;sintel_trailer-480p.ogv ! decodebin name&#x3D;decode ! videoscale ! &quot;video&#x2F;x-raw,width&#x3D;640,height&#x3D;480&quot; ! x264enc ! queue !  mp4mux name&#x3D;mux ! filesink location&#x3D;test-480p.mp4 decode. ! audioconvert ! avenc_aac compliance&#x3D;experimental ! queue ! mux.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="1-4-播放mp4"><a href="#1-4-播放mp4" class="headerlink" title="1.4 播放mp4"></a>1.4 播放mp4</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 playbin uri&#x3D;file:&#x2F;&#x2F;&#x2F;home&#x2F;llr&#x2F;work&#x2F;demo&#x2F;gst-demo&#x2F;test-480p.mp4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="1-5-udp-Streaming"><a href="#1-5-udp-Streaming" class="headerlink" title="1.5 udp Streaming"></a>1.5 udp Streaming</h3><p>server：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 -v videotestsrc ! &quot;video&#x2F;x-raw,framerate&#x3D;30&#x2F;1&quot; ! x264enc key-int-max&#x3D;30 ! rtph264pay ! udpsink host&#x3D;127.0.0.1 port&#x3D;1234<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>client：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 udpsrc port&#x3D;1234 ! &quot;application&#x2F;x-rtp, payload&#x3D;96&quot; ! rtph264depay ! decodebin ! autovideosink sync&#x3D;false<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="1-6-播放音频测试数据"><a href="#1-6-播放音频测试数据" class="headerlink" title="1.6 播放音频测试数据"></a>1.6 播放音频测试数据</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 audiotestsrc ! audioconvert ! autoaudiosink<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>uridecodebin会中内部实例化所需的Elements（source，demuxer，decoder）将URI所指向的媒体文件中的各种媒体数据分别提取出来。因为其包含了demuxer，所以Source Pad在初始化阶段无法访问，只有在收到相应事件后去动态连接Pad。</li>
+<li>audioconvert用于在不同的音频数据格式之间进行转换。由于不同的声卡支持的数据类型不尽相同，所以在某些平台需要对音频数据类型进行转换。</li>
+<li>autoaudiosink会自动查找声卡设备，并将音频数据传输到声卡上进行输出。</li>
 </ul>
-<h2 id="3-pkg-config命令使用"><a href="#3-pkg-config命令使用" class="headerlink" title="3. pkg-config命令使用"></a>3. pkg-config命令使用</h2><h3 id="3-1-列出所有已经安装的库"><a href="#3-1-列出所有已经安装的库" class="headerlink" title="3.1 列出所有已经安装的库"></a>3.1 列出所有已经安装的库</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pkg-config --list-all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="1-7-仅播放视频中的音频"><a href="#1-7-仅播放视频中的音频" class="headerlink" title="1.7 仅播放视频中的音频"></a>1.7 仅播放视频中的音频</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 uridecodebin uri&#x3D;https:&#x2F;&#x2F;www.freedesktop.org&#x2F;software&#x2F;gstreamer-sdk&#x2F;data&#x2F;media&#x2F;sintel_trailer-480p.webm ! audioconvert ! autoaudiosink<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/post/4583/image-20210603233210963.png" alt="image-20210603233210963"></p>
-<h3 id="3-2-列出指定库的预处理和编译flag"><a href="#3-2-列出指定库的预处理和编译flag" class="headerlink" title="3.2 列出指定库的预处理和编译flag"></a>3.2 列出指定库的预处理和编译flag</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pkg-config --cflags gstreamer-1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="1-8-使用多线程将一路媒体数据分为两路数据输出"><a href="#1-8-使用多线程将一路媒体数据分为两路数据输出" class="headerlink" title="1.8 使用多线程将一路媒体数据分为两路数据输出"></a>1.8 使用多线程将一路媒体数据分为两路数据输出</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 audiotestsrc freq&#x3D;215.0 ! tee name&#x3D;t ! queue ! audioconvert ! audioresample ! autoaudiosink t. ! queue ! wavescope shader&#x3D;0 style&#x3D;1 ! videoconvert ! autovideosink sync&#x3D;false<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/post/4583/image-20210603233743611.png" alt="image-20210603233743611"></p>
-<h3 id="3-3-列出指定库的链接flag"><a href="#3-3-列出指定库的链接flag" class="headerlink" title="3.3 列出指定库的链接flag"></a>3.3 列出指定库的链接flag</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pkg-config --libs gstreamer-1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/post/5979/image-20210605175326882.png" alt="image-20210605175326882"></p>
+<blockquote>
+<p>在上面的示例Pipeline中，souce是audiotestsrc，会产生一个相应的audio信号，然后使用tee Element将数据分为两路，一路被用于播放，通过声卡输出，另一路被用于转换为视频波形，用于输出到屏幕。<br>示例图中的红色阴影部分表示位于同一个线程中，queue会创建单独的线程，所以上面的Pipeline使用了3个线程完成相应的功能。拥有多个sink的Pipeline通常需要多个线程，因为在多个sync间进行同步的时候，sink会阻塞当前所在线程直到所等待的事件发生。</p>
+</blockquote>
+<h3 id="1-9-多分支管道"><a href="#1-9-多分支管道" class="headerlink" title="1.9 多分支管道"></a>1.9 多分支管道</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 videotestsrc ! videoconvert ! tee name&#x3D;t ! queue ! autovideosink t. ! queue ! autovideosink<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/post/4583/image-20210603233921087.png" alt="image-20210603233921087"></p>
-<h3 id="3-4-输出包的版本"><a href="#3-4-输出包的版本" class="headerlink" title="3.4 输出包的版本"></a>3.4 输出包的版本</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pkg-config --modversion gstreamer-base-1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/post/4583/image-20210603235709585.png" alt="image-20210603235709585"></p>
-<h3 id="3-5-输出需要依赖的软件包"><a href="#3-5-输出需要依赖的软件包" class="headerlink" title="3.5 输出需要依赖的软件包"></a>3.5 输出需要依赖的软件包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pkg-config --print-requires gstreamer-1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/post/4583/image-20210604005904417.png" alt="image-20210604005904417"></p>
+<h2 id="2-常用插件"><a href="#2-常用插件" class="headerlink" title="2. 常用插件"></a>2. 常用插件</h2><table>
+<thead>
+<tr>
+<th align="center">videotestsrc</th>
+<th>用于生成各种格式的测试视频数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">videoconvert</td>
+<td>用于多种视频格式之间转换</td>
+</tr>
+<tr>
+<td align="center">autovideosink</td>
+<td>视频接收器，可以自动检测要使用的适当视频接收器</td>
+</tr>
+<tr>
+<td align="center">videoscale</td>
+<td>用于调整视频分辨率的大小</td>
+</tr>
+<tr>
+<td align="center">audiotestsrc</td>
+<td>用于生成各种格式的测试音频数据</td>
+</tr>
+<tr>
+<td align="center">audioconvert</td>
+<td>用于多种音频格式之间转换</td>
+</tr>
+<tr>
+<td align="center">audioresample</td>
+<td>对音频数据重新采样</td>
+</tr>
+<tr>
+<td align="center">autoaudiosink</td>
+<td>音频接收器，可以自动检测要使用的适当的音频接收器。</td>
+</tr>
+<tr>
+<td align="center">tee</td>
+<td>用于将一路数据拆分为多路输出</td>
+</tr>
+<tr>
+<td align="center">queue</td>
+<td>队列，会在source pad创建新的线程</td>
+</tr>
+<tr>
+<td align="center">souphttpsrc</td>
+<td>从一个 URI 指定的远程位置读取数据，支持的协议是 http，https。</td>
+</tr>
+<tr>
+<td align="center">matroskademux</td>
+<td>将一个Matroska 文件分解成不同的流（分别为：音频流和数据流）</td>
+</tr>
+<tr>
+<td align="center">matroskamux</td>
+<td>将不同的输入流(<code>视频流和音频流</code>)转换成 Matroska 文件</td>
+</tr>
+<tr>
+<td align="center">filesrc</td>
+<td>从本地文件读取数据</td>
+</tr>
+<tr>
+<td align="center">filesink</td>
+<td>将传入的数据写入本地文件</td>
+</tr>
+<tr>
+<td align="center">playbin</td>
+<td>用于播放媒体文件</td>
+</tr>
+<tr>
+<td align="center">decodebin</td>
+<td>自动选择可用的解码器进行解码</td>
+</tr>
+<tr>
+<td align="center">uridecodebin</td>
+<td>将 URI 中的数据解码为原始媒体</td>
+</tr>
+<tr>
+<td align="center">fakesrc</td>
+<td>用于生成空的缓冲区</td>
+</tr>
+<tr>
+<td align="center">fakesink</td>
+<td>用于丢弃不需要的数据，类似于Linux的/dev/null</td>
+</tr>
+</tbody></table>
 
                 
             </div>
@@ -491,7 +599,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://llr.github.io/post/4583.html">https://llr.github.io/post/4583.html</a>
+                    <a href="https://llr.github.io/post/5979.html">https://llr.github.io/post/5979.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -529,8 +637,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux%E5%91%BD%E4%BB%A4/">
-                                    <span class="chip bg-color">linux命令</span>
+                                <a href="/tags/gstreamer%E5%91%BD%E4%BB%A4/">
+                                    <span class="chip bg-color">gstreamer命令</span>
                                 </a>
                             
                         </div>
@@ -836,9 +944,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/post/5979.html">
                     <div class="card-image">
@@ -856,9 +965,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -871,6 +980,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -889,13 +999,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/366d.html">
+                <a href="/post/4583.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="c++提高编程">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="pkg-config命令">
                         
-                        <span class="card-title">c++提高编程</span>
+                        <span class="card-title">pkg-config命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -906,14 +1016,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="post-category">
-                                    编程语言
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
                                 </a>
                             
                             
@@ -923,8 +1033,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/c/">
-                        <span class="chip bg-color">c++</span>
+                    <a href="/tags/linux%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">linux命令</span>
                     </a>
                     
                 </div>
