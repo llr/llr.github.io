@@ -400,7 +400,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
@@ -478,6 +478,17 @@ systemctl list-timers --all								#查看所有已启动的计时器<span aria-
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="/post/f81b/image-20210613211724088.png" alt="image-20210613211724088"></p>
+<h3 id="3-3-系统启动分析"><a href="#3-3-系统启动分析" class="headerlink" title="3.3 系统启动分析"></a>3.3 系统启动分析</h3><ul>
+<li><p>使用以下命令可查看系统启动每个服务花费的时间</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemd-analyze blame<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/post/f81b/image-20210614232953906.png" alt="image-20210614232953906"></p>
+<p>以下命令将生成已启动的系统服务的图形化（svg格式）详细信息，如下：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemd-analyze plot &gt; boot_analysis.svg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/post/f81b/image-20210614233125284.png" alt="image-20210614233125284"></p>
+</li>
+</ul>
 <h2 id="4-挂载文件系统-mount"><a href="#4-挂载文件系统-mount" class="headerlink" title="4. 挂载文件系统(mount)"></a>4. 挂载文件系统(mount)</h2><h3 id="4-1-查看systemd-mount用法"><a href="#4-1-查看systemd-mount用法" class="headerlink" title="4.1 查看systemd.mount用法"></a>4.1 查看systemd.mount用法</h3><ul>
 <li>man systemd.mount</li>
 </ul>
