@@ -393,7 +393,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-10
+                    2021-06-16
                 </div>
                 
 
@@ -488,6 +488,8 @@ gst-launch-1.0 videotestsrc ! &quot;video&#x2F;x-raw,width&#x3D;1280,height&#x3D
 <p>在上面的示例Pipeline中，souce是audiotestsrc，会产生一个相应的audio信号，然后使用tee Element将数据分为两路，一路被用于播放，通过声卡输出，另一路被用于转换为视频波形，用于输出到屏幕。<br>示例图中的红色阴影部分表示位于同一个线程中，queue会创建单独的线程，所以上面的Pipeline使用了3个线程完成相应的功能。拥有多个sink的Pipeline通常需要多个线程，因为在多个sync间进行同步的时候，sink会阻塞当前所在线程直到所等待的事件发生。</p>
 </blockquote>
 <h3 id="1-9-多分支管道"><a href="#1-9-多分支管道" class="headerlink" title="1.9 多分支管道"></a>1.9 多分支管道</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 videotestsrc ! videoconvert ! tee name&#x3D;t ! queue ! autovideosink t. ! queue ! autovideosink<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="1-10-抓取RTSP流"><a href="#1-10-抓取RTSP流" class="headerlink" title="1.10 抓取RTSP流"></a>1.10 抓取RTSP流</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gst-launch-1.0 rtspsrc location&#x3D;rtsp:&#x2F;&#x2F;wowzaec2demo.streamlock.net&#x2F;vod&#x2F;mp4:BigBuckBunny_115k.mov ! rtph264depay ! video&#x2F;x-h264, stream-format&#x3D;byte-stream ! h264parse  ! avdec_h264 ! videoconvert  ! autovideosink sync&#x3D;false<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="2-常用插件"><a href="#2-常用插件" class="headerlink" title="2. 常用插件"></a>2. 常用插件</h2><table>
 <thead>

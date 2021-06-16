@@ -393,21 +393,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-14
+                    2021-06-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -634,6 +634,37 @@ systemctl preset-all						#将所有服务恢复到preset状态<span aria-hidden
 </blockquote>
 <p>如下图为<code>sshd.socket</code>监听<code>22</code>端口，当客户端通过<code>ssh</code>远程连接时，会启动sshd.service服务</p>
 <p><img src="/post/f81b/image-20210614225626227.png" alt="image-20210614225626227"></p>
+<h2 id="9-path类型unit"><a href="#9-path类型unit" class="headerlink" title="9. path类型unit"></a>9. path类型unit</h2><blockquote>
+<p>​    使用path类型的unit，可以用于监控某一个路径，如果路径发生变化(例如：新增、删除文件等)，就会触发一个<code>service</code></p>
+</blockquote>
+<h3 id="9-1-案例-监控usb目录"><a href="#9-1-案例-监控usb目录" class="headerlink" title="9.1 案例 (监控usb目录)"></a>9.1 案例 (监控usb目录)</h3><ul>
+<li><p>创建<code>job.service</code>文件，内容如下：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[Unit]
+Description&#x3D;Simple Job
+
+[Service]
+Type&#x3D;oneshot
+ExecStart&#x3D;&#x2F;bin&#x2F;bash -c &quot;date &gt;&gt; &#x2F;tmp&#x2F;job.log&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>创建<code>job.path</code>文件，内容如下：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[Unit]
+Description&#x3D;Watch USB Device
+
+[Path]
+DirectoryNotEmpty&#x3D;&#x2F;run&#x2F;media&#x2F;sda1
+
+[Install]
+WantedBy&#x3D;multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>启动<code>job.path</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl start job.path
+
+systemctl status job.path<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/post/f81b/image-20210617001617926.png" alt="image-20210617001617926"></p>
+</li>
+<li><p>向<code>/run/media/sda1</code>新建一个文件，会触发<code>job.service</code>在<code>/tmp</code>目录下生成<code>job.log</code>文件。如下所示：</p>
+<p><img src="/post/f81b/image-20210617001907372.png" alt="image-20210617001907372"></p>
+</li>
+</ul>
 
                 
             </div>
