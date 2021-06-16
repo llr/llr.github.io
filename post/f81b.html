@@ -400,7 +400,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
@@ -460,18 +460,32 @@
 
 以上命令没有加任何参数，相当于：systemctl list-units
 
-systemctl --state&#x3D;failed 								#查看状态为failed的unit
-systemctl --state&#x3D;active								#查看状态为active的unit
-systemctl --state&#x3D;inactive								#查看状态为inactive的unit
-systemctl list-unit-files								#列出所有的unit文件
-systemctl is-enabled systemd-networkd.service			#查看服务是否自启动
-systemctl is-active systemd-networkd.service			#查看服务是否处于活动状态
-systemctl cat systemd-networkd							#查看unit文件内容
-systemctl list-dependencies systemd-networkd			#查看服务所依赖的服务
-systemctl get-default									#获取系统默认的target
-systemctl set-default multi-user.target					#设置系统默认的target
-systemctl daemon-reload									#重载所有修改过的配置文件
-systemctl list-timers --all								#查看所有已启动的计时器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+#查看状态为failed的unit
+$ systemctl --state&#x3D;failed
+#查看状态为active的unit
+$ systemctl --state&#x3D;active
+#查看状态为inactive的unit
+$ systemctl --state&#x3D;inactive
+#列出所有的unit文件
+$ systemctl list-unit-files
+#查看服务是否自启动
+$ systemctl is-enabled systemd-networkd.service
+#查看服务是否处于活动状态
+$ systemctl is-active systemd-networkd.service
+#查看unit文件内容
+$ systemctl cat systemd-networkd
+#查看服务所依赖的服务
+$ systemctl list-dependencies systemd-networkd
+#获取系统默认的target
+$ systemctl get-default
+#设置系统默认的target
+$ systemctl set-default multi-user.target
+#重载所有修改过的配置文件
+$ systemctl daemon-reload
+#查看所有已启动的计时器
+$ systemctl list-timers --all
+#显示指定服务的启动流
+$ systemd-analyze critical-chain multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/post/f81b/image-20210613211702333.png" alt="image-20210613211702333"></p>
 <p>以树形的结构显示systemd unit</p>
